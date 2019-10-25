@@ -1,0 +1,43 @@
+{
+  "name": "amazon-pa-api50",
+  "version": "0.0.1",
+  "description": "Amazon Product Advertising API v5.0 importer for NodeJs",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "node ./demo/index.js"
+  },
+  "keywords": [
+    "amazon",
+    "affiliate",
+    "product",
+    "node"
+  ],
+  "author": {
+    "name" : "Ariful Haque",
+    "email" : "arifulhb@gmail.com"
+    , "url" : "https://arifulhaque.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/arifulhb/amazon-pa-api50",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/arifulhb/amazon-pa-api50.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/arifulhb/amazon-pa-api50/issues",
+    "email" : "project@hostname.com"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "superagent": "^5.1.0"
+  }
+}

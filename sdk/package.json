@@ -1,0 +1,35 @@
+{
+  "name": "paapi5-nodejs-sdk",
+  "version": "1.0.0",
+  "description": "ProductAdvertisingAPI 5.0 NodeJS SDK",
+  "main": "src/index.js",
+  "author": {
+    "name": "Product Advertising API",
+    "email": "",
+    "url": "https://webservices.amazon.com/paapi5/documentation/index.html"
+  },
+  "homepage": "https://github.com/amzn/paapi5-nodejs-sdk",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amzn/paapi5-nodejs-sdk"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "superagent": "3.5.2",
+    "crypto-js": "^3.1.9-1"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
+  },
+  "keywords": [
+    "amazon",
+    "pa-api",
+    "paapi",
+    "ProductAdvertisingAPI"
+  ]
+}
