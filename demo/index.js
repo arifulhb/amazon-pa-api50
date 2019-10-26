@@ -1,8 +1,8 @@
-const Config = require('../src/config')
 const Api = require('../src/index')
-const condition = require('../src/options').Condition
-const searchIndex = require('../src/options').SearchIndex
-const resources = require('../src/options').Resources
+const Config = require('../lib/config')
+const condition = require('../lib/options').Condition
+const searchIndex = require('../lib/options').SearchIndex
+const resources = require('../lib/options').Resources
 const myConfig = new Config()
 
 /**
