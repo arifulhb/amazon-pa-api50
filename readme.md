@@ -15,43 +15,62 @@ npm install amazon-pa-api50 --save
 ```
 
 ### Connect with Amazon Product Affiliate API.
-Import the `Config` modulel.
+Import the `Config` module and `Api` client.
 ```
-const Config = require('amazon-pa-api50/config')
 const Api = require('amazon-pa-api50')
-
-const parameters = new ResourcesParameters()
-const sendDefaultParams = parameters.getItemInfo()
-const myConfig = new Config(sendDefaultParams)
-
+const Config = require('amazon-pa-api50/lib/config')
 ```
-After preparing the configuration,
+
+**Oprionl loading of modules**
+All of these are optional. Depends on what you want to search or fetch.
+```
+const resources = require('amazon-pa-api50/lib/options').Resources // Optional for different resources
+const condition = require('amazon-pa-api50/lib/options').Condition // for product condition
+const country = require('amazon-pa-api50/lib/options').Country // Optional for different country
+const searchIndex = require('amazon-pa-api50/lib/options').SearchIndex // for Search Index
+```
+**Create `Config` instance**
+```
+// By Default all resources and will connect to United States
+let myConfig = new Config();
+
+// if you want other country then united states.
+let myConfig = new Config(undefined, country.UnitedKingdom);
+
+// if you want custom resources.
+// this custom `resources.Offers` will be set default to all of your search. You can customize the resources in your search specific function also.
+let myConfig = new Config(resources.Offers);
+
+// if you want custom resources with different country
+let myConfig = new Config(resources.ItemInfo, country.Canada);
+```
+
+**Configure the Config class**
 ```
 /**
  * Add your Credentials Here
  */
 myConfig.accessKey = '<ACCESS_KEY>'
 myConfig.secretKey = '<SECRET_KEY>' 
-myConfig.partnerTag = '<PARTNERTAG>' 
+myConfig.partnerTag = '<PARTNER_TAG>' 
 ```
 
-After adding the credentials,
+After adding the credentials in `myConfig`, **Create `Api` instance**
 
 ```
 const api = new Api(myConfig)
-
 ```
 If all of your credentials are valid, you must be able to serach in Amazon now.
 ###
 
 ```
- let sendParams = parameters.getItemInfo()
-  sendParams = sendParams
-    .concat(parameters.getImagesPrimary())
+ let resourceList = resources.getItemInfo
+  resourceList = resourceList
+    .concat(resources.getImagesPrimary)
 
   api.getItemById(['B079JD7F7G'], {
-    parameters: sendParams,
-    condition: conditionParameters.Any
+    parameters: resourceList,
+    condition: condition.Any
   }).then((response) => {
     console.log(' ===== find by Item ids =====')
     console.log('data', response.data)
@@ -65,13 +84,13 @@ Sample tutorial for how to use this library is given in `./demo/index.js` file.
 ### Get a single or array of Products via ASIN
 ##### getItemById(['ASIN1', 'ASIN2'], params)
 ```
-let sendParams = parameters.getItemInfo()
-sendParams = sendParams
-  .concat(parameters.getImagesPrimary())
+let resourceList = parameters.getItemInfo
+resourceList = resourceList
+  .concat(parameters.getImagesPrimary)
 
 api.getItemById(['B079JD7F7G'], {
-  parameters: sendParams,
-  condition: conditionParameters.Any
+  parameters: resourceList,
+  condition: condition.Any
 }).then((response) => {
   console.log(' ===== find by Item ids =====')
   console.log('data', response.data)
@@ -85,13 +104,13 @@ Inside `then`, `response` object contain `response.data` and `response.response`
 ##### search('keyword', params)
 
 ```
-let sendParams = parameters.getItemInfo()
-sendParams = sendParams
-  .concat(parameters.getImagesPrimary())
+let resourceList = parameters.getItemInfo
+resourceList = resourceList
+  .concat(parameters.getImagesPrimary)
 
 api.search("Cowin E8", {
-  parameters: sendParams,
-  searchIndex: search.Index.Electronics
+  parameters: resourceList,
+  searchIndex: searchIndex.Electronics
 }).then((response) => {
   console.log(' ===== search result =====')
   console.log('data', response.data)
@@ -104,12 +123,11 @@ Inside `then`, `response` object contain `response.data` and `response.response`
 ### Get Product Variations
 ##### getVariations('asin1', params)
 ```
-const sendParams = parameters.getVariationSummary()
-const conditionParameters = require('amazon-pa-api50/conditionParameter')
+const resourceList = parameters.getVariationSummary
 
 api.getVariations("B079JD7F7G", {
-  parameters: sendParams,
-  condition: conditionParameters.Any
+  parameters: resourceList,
+  condition: condition.Any
 }).then((response) => {
   console.log(' ===== getVariations =====')
   console.log('data', response.data)
@@ -121,10 +139,10 @@ api.getVariations("B079JD7F7G", {
 ### Get Browser Node
 ##### getBrowseNodes(['asin1'], params)
 ```
-const sendParams = parameters.getBrowserNodes()
+const resourceList = parameters.getBrowserNodes
 
   api.getBrowseNodes(['284507'], {
-    parameters: sendParams
+    parameters: resourceList
   }
   ).then((response) => {
     console.log(' ===== getBrowserNode =====')
