@@ -79,6 +79,16 @@ If all of your credentials are valid, you must be able to serach in Amazon now.
   })
 ```
 ## Usage
+
+**`api`** have four main functions to fetch data from amazon. Each function has 2 parameters and return `promise`.
+
+- `api.getItemById(['asin1', 'asin2'], {})`
+- `api.search('keyword', {})`
+- `api.getVariations('asin1', {})`
+- `api.getBrowseNodes(['nodeid1', 'nodeid2'], {})`
+
+Inside `then`, block of the promise, `response` object contain `response.data` and `response.response` as full faw response from Amazon.
+
 Sample tutorial for how to use this library is given in `./demo/index.js` file. 
 
 ### Get a single or array of Products via ASIN
@@ -98,7 +108,7 @@ api.getItemById(['B079JD7F7G'], {
   console.log('Error: ', error)
 })
 ```
-Inside `then`, `response` object contain `response.data` and `response.response` as full faw response from Amazon.
+
 
 ### Search Products
 ##### search('keyword', params)
