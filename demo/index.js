@@ -1,11 +1,9 @@
 const Config = require('../src/config')
 const Api = require('../src/index')
-const ResourcesParameters = require('../src/resourcesParameters')
-const conditionParameters = require('../src/conditionParameter')
-const search = require('../src/search')
-const parameters = new ResourcesParameters()
-const sendDefaultParams = parameters.getItemInfo()
-const myConfig = new Config(sendDefaultParams)
+const condition = require('../src/options').Condition
+const searchIndex = require('../src/options').SearchIndex
+const resources = require('../src/options').Resources
+const myConfig = new Config()
 
 /**
  * Add your Credentials Here
@@ -14,19 +12,22 @@ myConfig.accessKey = '' // accessKey
 myConfig.secretKey = '' // secretKey
 myConfig.partnerTag = '' // partnerTag
 
+/**
+ * Initialize the api client
+ */
 const api = new Api(myConfig)
 
 /**
  * testGetItemById
  */
 const testGetItemById = () => {
-  let sendParams = parameters.getItemInfo()
-  sendParams = sendParams
-    .concat(parameters.getImagesPrimary())
+  let resourceList = resources.getItemInfo
+  resourceList = resourceList
+    .concat(resources.getImagesPrimary)
 
   api.getItemById(['B079JD7F7G'], {
-    parameters: sendParams,
-    condition: conditionParameters.Any
+    parameters: resourceList,
+    condition: condition.Any
   }).then((response) => {
     console.log(' ===== find by Item ids =====')
     console.log('data', response.data)
@@ -39,12 +40,11 @@ const testGetItemById = () => {
  * testGetBrowserNode
  */
 const testGetBrowserNode = function () {
-  const sendParams = parameters.getBrowserNodes()
+  const resourceList = resources.getBrowserNodes
 
   api.getBrowseNodes(['284507'], {
-    parameters: sendParams
-  }
-  ).then((response) => {
+    parameters: resourceList
+  }).then((response) => {
     console.log(' ===== getBrowserNode =====')
     console.log('data', response.data)
   }).catch((error) => {
@@ -56,11 +56,11 @@ const testGetBrowserNode = function () {
  * testGetVariations
  */
 const testGetVariations = () => {
-  const sendParams = parameters.getVariationSummary()
+  const resourceList = resources.getVariationSummary
 
   api.getVariations("B079JD7F7G", {
-    parameters: sendParams,
-    condition: conditionParameters.Any
+    parameters: resourceList,
+    condition: condition.Any
   }).then((response) => {
     console.log(' ===== getVariations =====')
     console.log('data', response.data)
@@ -74,13 +74,13 @@ testGetVariations()
  * testSearch
  */
 const testSearch = () => {
-  let sendParams = parameters.getItemInfo()
-  sendParams = sendParams
-    .concat(parameters.getImagesPrimary())
+  let resourceList = resources.getItemInfo
+  resourceList = resourceList
+    .concat(resources.getImagesPrimary)
 
   api.search("Cowin E8", {
-    parameters: sendParams,
-    searchIndex: search.Index.Electronics
+    parameters: resourceList,
+    searchIndex: searchIndex.Electronics
   }).then((response) => {
     console.log(' ===== search result =====')
     console.log('data', response.data)
@@ -89,7 +89,7 @@ const testSearch = () => {
   })
 }
 
-// testSearch()
+testSearch()
 // testGetItemById()
 // testGetBrowserNode()
-testGetVariations()
+// testGetVariations()

@@ -1,7 +1,7 @@
 /**
  * @source https://webservices.amazon.com/paapi5/documentation/get-items.html#condition-parameter
  */
-const conditionParameters = {
+const condition = {
   Any: 'Any',
   New: 'New',
   Used: 'Used',
@@ -9,4 +9,4 @@ const conditionParameters = {
   Refurbished: 'Refurbished'
 }
 
-module.exports = conditionParameters
+module.exports = condition

@@ -70,95 +70,82 @@ const items = {
   },
   ParentASIN: 'ParentASIN'
 }
-class ResourceParameters {
-  getAll () {
-    return [
-      items.BrowseNodeInfo.BrowseNodes,
-      items.BrowseNodeInfo.Ancestor,
-      items.BrowseNodeInfo.SalesRank,
-      items.BrowseNodeInfo.WebsiteSalesRank,
-      items.Images.Primary.Small,
-      items.Images.Primary.Medium,
-      items.Images.Primary.Large,
-      items.Images.Variants.Small,
-      items.Images.Variants.Medium,
-      items.Images.Variants.Large,
-      items.ItemInfo.Title,
-      items.ItemInfo.ByLineInfo,
-      items.ItemInfo.Classifications,
-      items.ItemInfo.ContentInfo,
-      items.ItemInfo.ContentRating,
-      items.ItemInfo.ExternalIds,
-      items.ItemInfo.Features,
-      items.ItemInfo.ManufactureInfo,
-      items.ItemInfo.ProductInfo,
-      items.ItemInfo.TechnicalInfo,
-      items.ItemInfo.TradeInInfo,
-      items.ParentASIN
-    ]
-  }
 
-  getParentAsin () {
-    return [
-      items.ParentASIN
-    ]
-  }
+const resources = {
+  getAll: [
+    items.BrowseNodeInfo.BrowseNodes,
+    items.BrowseNodeInfo.Ancestor,
+    items.BrowseNodeInfo.SalesRank,
+    items.BrowseNodeInfo.WebsiteSalesRank,
+    items.Images.Primary.Small,
+    items.Images.Primary.Medium,
+    items.Images.Primary.Large,
+    items.Images.Variants.Small,
+    items.Images.Variants.Medium,
+    items.Images.Variants.Large,
+    items.ItemInfo.Title,
+    items.ItemInfo.ByLineInfo,
+    items.ItemInfo.Classifications,
+    items.ItemInfo.ContentInfo,
+    items.ItemInfo.ContentRating,
+    items.ItemInfo.ExternalIds,
+    items.ItemInfo.Features,
+    items.ItemInfo.ManufactureInfo,
+    items.ItemInfo.ProductInfo,
+    items.ItemInfo.TechnicalInfo,
+    items.ItemInfo.TradeInInfo,
+    items.ParentASIN
+  ],
 
-  getItemInfo () {
-    return [
-      items.ItemInfo.Title,
-      items.ItemInfo.ByLineInfo,
-      items.ItemInfo.Classifications,
-      items.ItemInfo.ContentInfo,
-      items.ItemInfo.ContentRating,
-      items.ItemInfo.ExternalIds,
-      items.ItemInfo.Features,
-      items.ItemInfo.ManufactureInfo,
-      items.ItemInfo.ProductInfo,
-      items.ItemInfo.TechnicalInfo,
-      items.ItemInfo.TradeInInfo,
-      items.ParentASIN
-    ]
-  }
+  getParentAsin: [
+    items.ParentASIN
+  ],
 
-  getBrowserNodeInfo () {
-    return [
-      items.BrowseNodeInfo.BrowseNodes,
-      items.BrowseNodeInfo.Ancestor,
-      items.BrowseNodeInfo.SalesRank,
-      items.BrowseNodeInfo.WebsiteSalesRank
-    ]
-  }
+  getItemInfo: [
+    items.ItemInfo.Title,
+    items.ItemInfo.ByLineInfo,
+    items.ItemInfo.Classifications,
+    items.ItemInfo.ContentInfo,
+    items.ItemInfo.ContentRating,
+    items.ItemInfo.ExternalIds,
+    items.ItemInfo.Features,
+    items.ItemInfo.ManufactureInfo,
+    items.ItemInfo.ProductInfo,
+    items.ItemInfo.TechnicalInfo,
+    items.ItemInfo.TradeInInfo,
+    items.ParentASIN
+  ],
 
-  getImagesPrimary () {
-    return [
-      items.Images.Primary.Small,
-      items.Images.Primary.Medium,
-      items.Images.Primary.Large
-    ]
-  }
+  getBrowserNodeInfo: [
+    items.BrowseNodeInfo.BrowseNodes,
+    items.BrowseNodeInfo.Ancestor,
+    items.BrowseNodeInfo.SalesRank,
+    items.BrowseNodeInfo.WebsiteSalesRank
+  ],
 
-  getImagesVariants () {
-    return [
-      items.Images.Variants.Small,
-      items.Images.Variants.Medium,
-      items.Images.Variants.Large
-    ]
-  }
+  getImagesPrimary: [
+    items.Images.Primary.Small,
+    items.Images.Primary.Medium,
+    items.Images.Primary.Large
+  ],
 
-  getVariationSummary () {
-    return [
-      'VariationSummary.Price.HighestPrice',
-      'VariationSummary.Price.LowestPrice',
-      'VariationSummary.VariationDimension'
-    ]
-  }
+  getImagesVariants: [
+    items.Images.Variants.Small,
+    items.Images.Variants.Medium,
+    items.Images.Variants.Large
+  ],
 
-  getBrowserNodes () {
-    return [
-      'BrowseNodes.Ancestor',
-      'BrowseNodes.Children'
-    ]
-  }
+  getVariationSummary: [
+    'VariationSummary.Price.HighestPrice',
+    'VariationSummary.Price.LowestPrice',
+    'VariationSummary.VariationDimension'
+  ],
+
+  getBrowserNodes: [
+    'BrowseNodes.Ancestor',
+    'BrowseNodes.Children'
+  ]
+
 }
-module.exports = ResourceParameters
+
+module.exports = resources

@@ -1,6 +1,6 @@
 const searchIndex = {
   Books: 'Books',
-  MoviesAndTV: 'MoviesAndTV',
+  MoviesAndTv: 'MoviesAndTv',
   HomeAndKitchen: 'HomeAndKitchen',
   Fashion: 'Fashion',
   Electronics: 'Electronics',
