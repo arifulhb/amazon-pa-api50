@@ -1,6 +1,6 @@
 # Amazon Product Advertising _(Affiliate)_ API v5 for NodeJS
 ## amazon-pa-api50 _v0.0.2_
-This Nodejs package use Amazon's [NodeJS Sdk](https://webservices.amazon.com/paapi5/documentation/quick-start/using-sdk.html#nodejs) to make the development more simplier, in less time and use the power of NPM.
+This Nodejs package use Amazon's [NodeJS SDK](https://webservices.amazon.com/paapi5/documentation/quick-start/using-sdk.html#nodejs) to make the development simpler, in less time and use the power of NPM.
 
 Learn more about [Product Advertising API v5](https://webservices.amazon.com/paapi5/documentation/).
 
@@ -21,7 +21,7 @@ const Api = require('amazon-pa-api50')
 const Config = require('amazon-pa-api50/lib/config')
 ```
 
-**Oprionl loading of modules**
+**Optional loading of modules**
 All of these are optional. Depends on what you want to search or fetch.
 ```
 const resources = require('amazon-pa-api50/lib/options').Resources // Optional for different resources
@@ -55,7 +55,7 @@ myConfig.secretKey = '<SECRET_KEY>'
 myConfig.partnerTag = '<PARTNER_TAG>' 
 ```
 
-After adding the credentials in `myConfig`, **Create `Api` instance**
+After adding the credentials in `myConfig`, Create **`Api`** instance
 
 ```
 const api = new Api(myConfig)
