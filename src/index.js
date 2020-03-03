@@ -178,6 +178,7 @@ class Api {
             reject(new Error(err))
           }
           let searchItemsResponse = ProductAdvertisingAPIv1.SearchItemsResponse.constructFromObject(data)
+          if(!searchItemsResponse) return reject('too many requests - empty response')
           searchItemsResponse = JSON.parse(JSON.stringify(searchItemsResponse))
           resolve(
             {
