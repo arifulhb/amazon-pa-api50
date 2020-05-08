@@ -1,6 +1,6 @@
 {
   "name": "amazon-pa-api50",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Amazon Product Advertising API v5.0 for JavasScript & NodeJs",
   "main": "./src/index.js",
   "scripts": {
@@ -16,19 +16,19 @@
     "node"
   ],
   "author": {
-    "name" : "Ariful Haque",
-    "email" : "arifulhb@gmail.com"
-    , "url" : "https://arifulhaque.com"
+    "name": "Ariful Haque",
+    "email": "arifulhb@gmail.com",
+    "url": "https://arifulhaque.com"
   },
   "license": "MIT",
   "homepage": "https://github.com/arifulhb/amazon-pa-api50",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/arifulhb/amazon-pa-api50.git"
+    "type": "git",
+    "url": "https://github.com/arifulhb/amazon-pa-api50.git"
   },
   "bugs": {
-    "url" : "https://github.com/arifulhb/amazon-pa-api50/issues",
-    "email" : "project@hostname.com"
+    "url": "https://github.com/arifulhb/amazon-pa-api50/issues",
+    "email": "project@hostname.com"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
