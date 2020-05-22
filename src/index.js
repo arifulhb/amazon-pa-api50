@@ -19,7 +19,8 @@ class Api {
    */
   getItemById (ids, params = {
     parameters: null,
-    condition: 'New'
+    condition: 'New',
+    merchant: 'All'
   }) {
     let getItemsRequest = new ProductAdvertisingAPIv1.GetItemsRequest()
     getItemsRequest = {
@@ -35,6 +36,10 @@ class Api {
 
     if (params.condition !== null || params.condition !== 'undefined') {
       getItemsRequest.Condition = params.condition
+    }
+
+    if (params.merchant !== null || params.merchant !== 'undefined') {
+      getItemsRequest.Merchant = params.merchant
     }
 
     return new Promise((resolve, reject) => {
@@ -108,7 +113,8 @@ class Api {
    */
   getVariations (asin, params = {
     parameters: null,
-    condition: 'New'
+    condition: 'New',
+    merchant: 'All'
   }) {
     let getVariationsRequest = new ProductAdvertisingAPIv1.GetVariationsRequest()
     getVariationsRequest = {
@@ -123,6 +129,9 @@ class Api {
     }
     if (params.condition !== null || params.condition !== 'undefined') {
       getVariationsRequest.Condition = params.condition
+    }
+    if (params.merchant !== null || params.merchant !== 'undefined') {
+      getVariationsRequest.Merchant = params.merchant
     }
 
     return new Promise((resolve, reject) => {
@@ -154,7 +163,8 @@ class Api {
    */
   search (keywords, params = {
     parameters: null,
-    condition: 'New'
+    condition: 'New',
+    merchant: 'All'
   }) {
     let getSearchItemsRequest = new ProductAdvertisingAPIv1.SearchItemsRequest()
     getSearchItemsRequest = {
@@ -172,6 +182,9 @@ class Api {
     }
     if (params.itemCount !== null || params.itemCount !== 'undefined') {
       getSearchItemsRequest.ItemCount = params.itemCount
+    }
+    if (params.merchant !== null || params.merchant !== 'undefined') {
+      getSearchItemsRequest.Merchant = params.merchant
     }
 
     return new Promise((resolve, reject) => {
