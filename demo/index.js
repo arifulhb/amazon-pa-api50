@@ -21,17 +21,18 @@ const api = new Api(myConfig)
  * testGetItemById
  */
 const testGetItemById = () => {
+  console.log(' ===== find by Item ids =====')
+
   let resourceList = resources.getItemInfo
   resourceList = resourceList
     .concat(resources.getImagesPrimary)
 
-  api.getItemById(['B079JD7F7G'], {
+  api.getItemById(['B082SW2BDJ'], {
     parameters: resourceList,
     condition: condition.Any
   }).then((response) => {
-    console.log(' ===== find by Item ids =====')
     console.log('data', response.data)
-  }).catch((error) => {
+  }, (error) => {
     console.log('Error: ', error)
   })
 }
@@ -40,14 +41,14 @@ const testGetItemById = () => {
  * testGetBrowserNode
  */
 const testGetBrowserNode = function () {
+  console.log(' ===== search result =====')
   const resourceList = resources.getBrowserNodes
 
   api.getBrowseNodes(['284507'], {
     parameters: resourceList
   }).then((response) => {
-    console.log(' ===== getBrowserNode =====')
     console.log('data', response.data)
-  }).catch((error) => {
+  }, (error) => {
     console.log('Error: ', error)
   })
 }
@@ -56,24 +57,25 @@ const testGetBrowserNode = function () {
  * testGetVariations
  */
 const testGetVariations = () => {
+  console.log(' ===== getVariations =====')
   const resourceList = resources.getVariationSummary
 
-  api.getVariations("B079JD7F7G", {
+  api.getVariations("B07QXKW89P", {
     parameters: resourceList,
     condition: condition.Any
   }).then((response) => {
-    console.log(' ===== getVariations =====')
     console.log('data', response.data)
-  }).catch((error) => {
+  }, (error) => {
     console.log('Error: ', error)
   })
 }
-testGetVariations()
 
 /**
  * testSearch
  */
 const testSearch = () => {
+  console.log(' ===== search result =====')
+
   let resourceList = resources.getItemInfo
   resourceList = resourceList
     .concat(resources.getImagesPrimary)
@@ -82,14 +84,14 @@ const testSearch = () => {
     parameters: resourceList,
     searchIndex: searchIndex.Electronics
   }).then((response) => {
-    console.log(' ===== search result =====')
     console.log('data', response.data)
-  }).catch((error) => {
+  }, (error) => {
     console.log('Error: ', error)
   })
 }
 
-testSearch()
+// PLEASE UNCOMMENTED THE FUNCTIONS BELLOW TO TEST THE DEMO.
+// testSearch()
 // testGetItemById()
 // testGetBrowserNode()
 // testGetVariations()
