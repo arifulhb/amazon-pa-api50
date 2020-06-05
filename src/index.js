@@ -41,7 +41,7 @@ class Api {
       try {
         this._api.getItems(getItemsRequest, (err, data, response) => {
           if (err) {
-            reject(new Error(err))
+            return reject(new Error(err))
           }
           let getItemsResponse = ProductAdvertisingAPIv1.GetItemsResponse.constructFromObject(data)
           if(!getItemsResponse) return reject('too many requests - empty response')
@@ -83,7 +83,7 @@ class Api {
       try {
         this._api.getBrowseNodes(getBrowseNodesRequest, (err, data, response) => {
           if (err) {
-            reject(new Error(err))
+            return reject(new Error(err))
           }
           let getBrowseNodesResponse = ProductAdvertisingAPIv1.GetBrowseNodesResponse.constructFromObject(data)
           if(!getBrowseNodesResponse) return reject('too many requests - empty response')
@@ -129,7 +129,7 @@ class Api {
       try {
         this._api.getVariations(getVariationsRequest, (err, data, response) => {
           if (err) {
-            reject(new Error(err))
+            return reject(new Error(err))
           }
           let variationsResponse = ProductAdvertisingAPIv1.GetVariationsResponse.constructFromObject(data)
           if(!variationsResponse) return reject('too many requests - empty response')
@@ -178,7 +178,7 @@ class Api {
       try {
         this._api.searchItems(getSearchItemsRequest, (err, data, response) => {
           if (err) {
-            reject(new Error(err))
+            return reject(new Error(err))
           }
           let searchItemsResponse = ProductAdvertisingAPIv1.SearchItemsResponse.constructFromObject(data)
           if(!searchItemsResponse) return reject('too many requests - empty response')
