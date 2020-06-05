@@ -44,8 +44,13 @@ class Api {
             return reject(new Error(err))
           }
           let getItemsResponse = ProductAdvertisingAPIv1.GetItemsResponse.constructFromObject(data)
-          if(!getItemsResponse) return reject('too many requests - empty response')
+
+          if (!getItemsResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           getItemsResponse = JSON.parse(JSON.stringify(getItemsResponse))
+
           resolve(
             {
               data: getItemsResponse,
@@ -86,8 +91,13 @@ class Api {
             return reject(new Error(err))
           }
           let getBrowseNodesResponse = ProductAdvertisingAPIv1.GetBrowseNodesResponse.constructFromObject(data)
-          if(!getBrowseNodesResponse) return reject('too many requests - empty response')
+
+          if (!getBrowseNodesResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           getBrowseNodesResponse = JSON.parse(JSON.stringify(getBrowseNodesResponse))
+
           resolve(
             {
               data: getBrowseNodesResponse,
