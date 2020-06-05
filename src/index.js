@@ -108,7 +108,8 @@ class Api {
 
   /**
    * Get Variations
-   * @param {string} asin
+    condition: 'New',
+    merchant: 'All'
    * @param {object} params
    */
   getVariations (asin, params = {
