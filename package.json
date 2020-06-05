@@ -1,6 +1,6 @@
 {
   "name": "amazon-pa-api50",
-  "version": "0.0.4",
+  "version": "0.2.0",
   "description": "Amazon Product Advertising API v5.0 for JavasScript & NodeJs",
   "main": "./src/index.js",
   "scripts": {

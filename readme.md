@@ -1,5 +1,5 @@
 # Amazon Product Advertising _(Affiliate)_ API v5 for NodeJS
-## amazon-pa-api50 _v0.0.2_
+## amazon-pa-api50 _v0.2.0_
 This Nodejs package use Amazon's [NodeJS SDK](https://webservices.amazon.com/paapi5/documentation/quick-start/using-sdk.html#nodejs) to make the development simpler, in less time and use the power of NPM.
 
 Learn more about [Product Advertising API v5](https://webservices.amazon.com/paapi5/documentation/).
@@ -64,7 +64,8 @@ If all of your credentials are valid, you must be able to serach in Amazon now.
 ###
 
 ```
- let resourceList = resources.getItemInfo
+  console.log(' ===== find by Item ids =====')
+  let resourceList = resources.getItemInfo
   resourceList = resourceList
     .concat(resources.getImagesPrimary)
 
@@ -72,9 +73,8 @@ If all of your credentials are valid, you must be able to serach in Amazon now.
     parameters: resourceList,
     condition: condition.Any
   }).then((response) => {
-    console.log(' ===== find by Item ids =====')
     console.log('data', response.data)
-  }).catch((error) => {
+  }, (error) => {
     console.log('Error: ', error)
   })
 ```
@@ -94,6 +94,7 @@ Sample tutorial for how to use this library is given in `./demo/index.js` file.
 ### Get a single or array of Products via ASIN
 ##### getItemById(['ASIN1', 'ASIN2'], params)
 ```
+console.log(' ===== find by Item ids =====')
 let resourceList = parameters.getItemInfo
 resourceList = resourceList
   .concat(parameters.getImagesPrimary)
@@ -102,9 +103,8 @@ api.getItemById(['B079JD7F7G'], {
   parameters: resourceList,
   condition: condition.Any
 }).then((response) => {
-  console.log(' ===== find by Item ids =====')
   console.log('data', response.data)
-}).catch((error) => {
+}, (error) => {
   console.log('Error: ', error)
 })
 ```
@@ -114,6 +114,7 @@ api.getItemById(['B079JD7F7G'], {
 ##### search('keyword', params)
 
 ```
+console.log(' ===== search result =====')
 let resourceList = parameters.getItemInfo
 resourceList = resourceList
   .concat(parameters.getImagesPrimary)
@@ -122,9 +123,8 @@ api.search("Cowin E8", {
   parameters: resourceList,
   searchIndex: searchIndex.Electronics
 }).then((response) => {
-  console.log(' ===== search result =====')
   console.log('data', response.data)
-}).catch((error) => {
+}, (error) => {
   console.log('Error: ', error)
 })
 ```
@@ -133,15 +133,15 @@ Inside `then`, `response` object contain `response.data` and `response.response`
 ### Get Product Variations
 ##### getVariations('asin1', params)
 ```
+console.log(' ===== search result =====')
 const resourceList = parameters.getVariationSummary
 
 api.getVariations("B079JD7F7G", {
   parameters: resourceList,
   condition: condition.Any
 }).then((response) => {
-  console.log(' ===== getVariations =====')
   console.log('data', response.data)
-}).catch((error) => {
+}, (error) => {
   console.log('Error: ', error)
 })
 ```
@@ -149,17 +149,16 @@ api.getVariations("B079JD7F7G", {
 ### Get Browser Node
 ##### getBrowseNodes(['asin1'], params)
 ```
+console.log(' ===== getBrowserNode =====')
 const resourceList = parameters.getBrowserNodes
 
-  api.getBrowseNodes(['284507'], {
-    parameters: resourceList
-  }
-  ).then((response) => {
-    console.log(' ===== getBrowserNode =====')
-    console.log('data', response.data)
-  }).catch((error) => {
-    console.log('Error: ', error)
-  })
+api.getBrowseNodes(['284507'], {
+  parameters: resourceList
+}).then((response) => {
+  console.log('data', response.data)
+}, (error) => {
+  console.log('Error: ', error)
+})
 ```
 # Contributing
 We'd love to have your helping hand on **amazon-pa-api50**! We are preparing the contributing guideline and todo list. Meanwhile, please install, test and use this to find bugs or any creative ideas.
