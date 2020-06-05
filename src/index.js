@@ -44,8 +44,13 @@ class Api {
             return reject(new Error(err))
           }
           let getItemsResponse = ProductAdvertisingAPIv1.GetItemsResponse.constructFromObject(data)
-          if(!getItemsResponse) return reject('too many requests - empty response')
+
+          if (!getItemsResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           getItemsResponse = JSON.parse(JSON.stringify(getItemsResponse))
+
           resolve(
             {
               data: getItemsResponse,
@@ -86,8 +91,13 @@ class Api {
             return reject(new Error(err))
           }
           let getBrowseNodesResponse = ProductAdvertisingAPIv1.GetBrowseNodesResponse.constructFromObject(data)
-          if(!getBrowseNodesResponse) return reject('too many requests - empty response')
+
+          if (!getBrowseNodesResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           getBrowseNodesResponse = JSON.parse(JSON.stringify(getBrowseNodesResponse))
+
           resolve(
             {
               data: getBrowseNodesResponse,
@@ -132,8 +142,13 @@ class Api {
             return reject(new Error(err))
           }
           let variationsResponse = ProductAdvertisingAPIv1.GetVariationsResponse.constructFromObject(data)
-          if(!variationsResponse) return reject('too many requests - empty response')
+
+          if (!variationsResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           variationsResponse = JSON.parse(JSON.stringify(variationsResponse))
+
           resolve(
             {
               data: variationsResponse,
@@ -181,8 +196,13 @@ class Api {
             return reject(new Error(err))
           }
           let searchItemsResponse = ProductAdvertisingAPIv1.SearchItemsResponse.constructFromObject(data)
-          if(!searchItemsResponse) return reject('too many requests - empty response')
+
+          if (!searchItemsResponse) {
+            return reject(new Error('too many requests - empty response'))
+          }
+
           searchItemsResponse = JSON.parse(JSON.stringify(searchItemsResponse))
+
           resolve(
             {
               data: searchItemsResponse,
